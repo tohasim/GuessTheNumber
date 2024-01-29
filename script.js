@@ -5,6 +5,7 @@ let tal;
 window.addEventListener("load", start);
 
 function start(){
+    form.guess.value="";
     tal = generateRandomNumber();
     document.querySelector("#guessingForm").addEventListener("submit", receiveGuess)
 }
@@ -19,6 +20,7 @@ function receiveGuess(event){
     const form = event.target;
     const value = form.guess.valueAsNumber
     checkGuess(value)    
+    form.guess.value="";
 }
 
 function checkGuess(guess){
@@ -34,7 +36,8 @@ function checkGuess(guess){
 function guessIsCorrect(guess){
     const html = `<li>Du gæssede ${guess} - det var korrekt :))))</li>`
     const list = document.getElementById("guessList")
-    list.insertAdjacentHTML("beforeend", html)    
+    list.insertAdjacentHTML("beforeend", html) 
+    document.getElementById("guessingForm").remove()   
     
 }
 function guessIsTooLow(guess){
