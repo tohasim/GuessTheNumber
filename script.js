@@ -5,14 +5,13 @@ let tal;
 window.addEventListener("load", start);
 
 function start(){
-    form.guess.value="";
     tal = generateRandomNumber();
     document.querySelector("#guessingForm").addEventListener("submit", receiveGuess)
 }
 
 
 function generateRandomNumber(){
-    return 42;
+    return Math.floor(Math.random()*100);
 }
 
 function receiveGuess(event){
